@@ -3,6 +3,10 @@ import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
 
+import { Route } from 'react-router-dom';
+import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie';
+
 const App = () => {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
   const [movieList, setMovieList] = useState([]);
@@ -28,8 +32,13 @@ const App = () => {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-      <div>Replace this Div with your Routes</div>
+      <div>
+      <Route path='/' component={MovieList} />    {/*DOES THIS NEED TO HAVE 'MOVIES INJECTED INTO IT FIA PROPS? SEE INSTRUSCTIONS LIST IN README */}
+    <Route path='/movies/DYNAMIC-ID' component={Movie} />
+                    {/*  ^^THIS takes a dynamic `id` parameter*/}
+      </div>
     </div>
+
   );
 };
 
